@@ -1,10 +1,13 @@
+Die one, two, three, four, five, six, seven, eight, nine;
 void setup()
 {
+	size(300, 300);
 	noLoop();
 }
 void draw()
 {
 	//your code here
+	background(0);
 }
 void mousePressed()
 {
