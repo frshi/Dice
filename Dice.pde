@@ -1,17 +1,17 @@
 Die one, two, three, four, five, six, seven, eight, nine;
 void setup()
 {
-	size(300, 300);
+	size(300, 400);
 	noLoop();
-	one = new Die(75,75);
-	two = new Die(150,75);
-	three = new Die(225,75);
-	four = new Die(75,150);
-	five = new Die(150,150);
-	six = new Die(225,150);
-	seven = new Die(75,225);
-	eight = new Die(150,225);
-	nine = new Die(225,225);
+	one = new Die(55,55);
+	two = new Die(130,55);
+	three = new Die(205,55);
+	four = new Die(55,130);
+	five = new Die(130,130);
+	six = new Die(205,130);
+	seven = new Die(55,205);
+	eight = new Die(130,205);
+	nine = new Die(205,205);
 }
 void draw()
 {
@@ -35,6 +35,10 @@ void draw()
 	eight.show();
 	nine.roll();
 	nine.show();
+	int sum = one.num + two.num + three.num + four.num + five.num + six.num + seven.num + eight.num + nine.num;
+	fill(255);
+	textSize(60);
+	text("Total: " + sum,20,350);
 }
 void mousePressed()
 {
@@ -55,14 +59,50 @@ class Die //models one single dice cube
 	{
 		//your code here
 		num = (int)(Math.random()*6)+1;
-		fill(255);
-		for(int i = 0; i < num; i++)
-			ellipse(myX+i,myY+i,5,5);
 	}
 	void show()
 	{
 		//your code here
 		fill(255);
 		rect(myX,myY,40,40);
+		fill(0);
+		if (num == 1)
+		{
+			ellipse(myX+20, myY+20, 5,5);
+		}
+		else if(num == 2)
+		{
+			ellipse(myX+20-10, myY+20-10, 5,5);
+			ellipse(myX+20+10, myY+20+10, 5,5);
+		}
+		else if(num == 3)
+		{	ellipse(myX+20-10, myY+20-10, 5,5);
+			ellipse(myX+20+10, myY+20+10, 5,5);
+			ellipse(myX+20, myY+20, 5,5);
+		}
+		else if(num == 4)
+		{
+			ellipse(myX+20+10, myY+20+10, 5,5);
+			ellipse(myX+20+10, myY+20-10, 5,5);
+			ellipse(myX+20-10, myY+20+10, 5,5);
+			ellipse(myX+20-10, myY+20-10, 5,5);
+		}
+		else if(num == 5)
+		{
+			ellipse(myX+20+10, myY+20+10, 5,5);
+			ellipse(myX+20+10, myY+20-10, 5,5);
+			ellipse(myX+20-10, myY+20+10, 5,5);
+			ellipse(myX+20-10, myY+20-10, 5,5);
+			ellipse(myX+20, myY+20, 5,5);
+		}
+		else if(num == 6)
+		{
+			ellipse(myX+20-10, myY+20, 5,5);
+			ellipse(myX+20+10, myY+20, 5,5);
+			ellipse(myX+20-10, myY+20+10, 5,5);
+			ellipse(myX+20+10, myY+20+10, 5,5);
+			ellipse(myX+20-10, myY+20-10, 5,5);
+			ellipse(myX+20+10, myY+20-10, 5,5);
+		}
 	}
 }
